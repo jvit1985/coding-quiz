@@ -3,24 +3,47 @@ body {
 }
 
 header {
-    display: inline;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
 }
 
-.high-score-button {
+#high-score-button {
     color: rgb(231, 2, 231);
-    align-content: left;
-    position:fixed;
+    background-color: white;
+    border: none;
+}
+
+#countdown-timer-display {
+    position: relative;
+    display: flex;
+}
+
+#countdown-timer-display h4 {
+    display: flex;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin: 20px;
+}
+
+.start-quiz {
+    text-align: center;
 }
 
 button {
-    color: rgb(2, 2, 68);
+    text-align: center;
+    background-color:rgb(18, 18, 168);
+    color: white;
 }
 
 button:hover {
-    color:rgb(231, 2, 231);
+    background-color: rgb(231, 2, 231);
 }
 
-.countdown-timer-display {
-    align-content: right;
-    position:fixed;
-}

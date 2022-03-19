@@ -21,7 +21,7 @@ function countdown() {
     }, 1000);
 }
 
-function displayMessage() {
+function displayQuestion() {
     var question = 0;
 
     var questionInterval = setInterval(function() {
