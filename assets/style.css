@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+}
+
+header {
+    display: inline;
+}
+
+.high-score-button {
+    color: rgb(231, 2, 231);
+    align-content: left;
+    position:fixed;
+}
+
+button {
+    color: rgb(2, 2, 68);
+}
+
+button:hover {
+    color:rgb(231, 2, 231);
+}
+
+.countdown-timer-display {
+    align-content: right;
+    position:fixed;
+}
