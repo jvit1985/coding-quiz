@@ -13,17 +13,20 @@
         <button id="high-score-button">View High Score</button>
         </div>
         <div class="header-box" id="countdown-timer-display">
-            <h4>Time:</h4>
+            <h4>Time:<span id="countdown-timer-view"></span></h4>
         </div>
     </header>
-    <!-- Start Quiz Display -->
-    <section class="display">
-        <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code related questions within the time limit. If you get a question wrong you will be penalized by losing 10 seconds from your score!</p>
-        <div class="start-quiz" >
-            <button class="button-start">Start Quiz</button>
+    <!-- Quiz Display -->
+    <div class="display">
+        <h1 id="display-question"></h1>
+        <p id="initial-rules"></p>
+        <div class="options">
+            <button id="button1">Start Quiz</button>
+            <button id="button2"></button>
+            <button id="button3"></button>
+            <button id="button4"></button>
         </div>
-    </section>
+    </div>
     <script src="./assets/script.js"></script>
 </body>
 </html>

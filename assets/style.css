@@ -13,6 +13,7 @@ header {
     color: rgb(231, 2, 231);
     background-color: white;
     border: none;
+    opacity: 1;
 }
 
 #countdown-timer-display {
@@ -37,10 +38,25 @@ p {
     text-align: center;
 }
 
+.options {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    align-content: center;
+}
+
 button {
     text-align: center;
     background-color:rgb(18, 18, 168);
     color: white;
+    display: flex;
+    opacity: 0;
+}
+
+#button1 {
+    opacity: 1;
 }
 
 button:hover {
