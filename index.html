@@ -13,20 +13,58 @@
         <button id="high-score-button">View High Score</button>
         </div>
         <div class="header-box" id="countdown-timer-display">
-            <h4>Time:<span id="countdown-timer-view"></span></h4>
+            <h4>Time:<span id="countdown-timer-view">0</span></h4>
         </div>
     </header>
-    <!-- Quiz Display -->
-    <div class="display">
-        <h1 id="display-question"></h1>
-        <p id="initial-rules"></p>
-        <div class="options">
-            <button id="button1">Start Quiz</button>
-            <button id="button2"></button>
-            <button id="button3"></button>
-            <button id="button4"></button>
+    <!-- Main Content -->
+    <main>
+        <!-- Container for Intro, Questions, and Answers -->
+        <div class="container">
+            <!-- Section for Intro -->
+            <section id="introduction">
+                <h1>Coding Quiz Challenge</h1>
+                <p>Answer the questions as quickly as possible before the timer expires, but keep in mind wrong answers will deduct 10 seconds from your time/score.</p>
+                <div class="display">
+                    <button id="start" type="button" class="btn">Start Quiz</button>
+                    </div>
+                </section>
+            <!-- Section for Questions and Answers -->    
+            <section id="questions">
+            <div class="options">
+                <h2 id="question">Question goes here</h2>
+                <ul>
+                    <li><button id="answer1" value="0" type="button" class="btn ansBtn">Answer1</button></li>
+                    <li><button id="answer2" value="1" type="button" class="btn ansBtn">Answer2</button></li>
+                    <li><button id="answer3" value="2" type="button" class="btn ansBtn">Answer3</button></li>
+                    <li><button id="answer4" value="3" type="button" class="btn ansBtn">Answer4</button></li>
+                </ul>
+            <div id="yesorno">
+                <hr>
+            </div>
         </div>
+        <!-- Final Score and Name Input Section -->
+        </section>
+        <section id="input">
+            <div>
+                <h2>All done!</h2>
+                <p> Your final score is: <span id="score">0</span></p>
+                <p>Enter Initials: <span><input placeholder="initials" id="initals" /></span>
+                    <button id="submit" class="btn">Submit</button>
+                </p>
+            </div>
+        </section>
+        <!-- High Score Section -->
+        <section id="highscores">
+            <div>
+                <h2>High Scores</h2>
+                <ol id="high-score-list">
+                </ol>
+                <button id="restart" class="btn">Restart Game</button>
+                <button id="clearscores" class="btn">Clear High Scores</button>
+            </div>
+        </section>
     </div>
+    </main>
     <script src="./assets/script.js"></script>
 </body>
 </html>

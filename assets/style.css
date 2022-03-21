@@ -25,7 +25,7 @@ header {
     display: flex;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
 }
 
@@ -34,11 +34,7 @@ p {
     margin: 20px;
 }
 
-.start-quiz {
-    text-align: center;
-}
-
-.options {
+.container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -47,17 +43,28 @@ p {
     align-content: center;
 }
 
+.display {
+    justify-content: space-around;
+    display: flex;
+}
+
+#questions, #input, #highscores, #yesorno {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
 button {
+    align-content: center;
     text-align: center;
     background-color:rgb(18, 18, 168);
     color: white;
     display: flex;
-    opacity: 0;
+    border-radius: 10px;
 }
 
-#button1 {
-    opacity: 1;
-}
 
 button:hover {
     background-color: rgb(231, 2, 231);

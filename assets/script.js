@@ -1,76 +1,111 @@
-var timerEl = document.getElementById("countdown-timer-view");
-var displayEl = document.getElementById("display-question");
-var mainQuestionEl = document.getElementById("initial-rules");
-var btn = document.getElementById("button1");
-
-displayEl.textContent="Coding Quiz Challenge";
-mainQuestionEl.textContent="Answer the questions as quickly as possible before the timer expires, but keep in mind wrong answers will deduct 10 seconds from your time/score."
+//time and score variables
+var timerEl = document.querySelector("countdown-timer-view");
+var secondsLeft = 100;
+var scoreEl = document.querySelector("#score");
+//intro section
+var introductionEl = document.querySelector("#introduction");
+//question section
+var questionsEl = document.querySelector("#questions");
+var questionEl = document.querySelector("#question");
+var questionCount = 0;
+var yesornoEl = document.querySelector("#rightorwrong");
+//input section
+var inputEl = document.querySelector("#final");
+var initialsInput = document.querySelector("#initials");
+//high score section
+var highscoresEl = document.querySelector("#highscores");
+var highScoreListEl = document.querySelector("#high-score-list");
+var highScoreList = [];
+//buttons
+var startBtn = document.querySelector("#start");
+var answerBtn = document.querySelectorAll("button.ansBtn");
+var answer1Btn = document.querySelector("#answer1");
+var answer2Btn = document.querySelector("#answer2");
+var answer3Btn = document.querySelector("#answer3");
+var answer4Btn = document.querySelector("#answer4");
+var submitBtn = document.querySelector("#submit");
+var restartBtn = document.querySelector("#restart");
+var clearScoreBtn = document.querySelector("#clearscores");
+var highScoreBtn = document.querySelector("#high-score-button");
 
 var questions = [
     {
         question: "Question 1 here",
-        optionA: "Answer 1 here",
-        optionB: "Answer 2 here",
-        optionC: "Correct Answer Here",
-        optionD: "Answer 4 here",
-        correctionOption: "optionC"
+        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        correctAnswer: "0"
     },
 
     {
         question: "Question 2 here",
-        optionA: "Correct Answer Here",
-        optionB: "Answer 2 here",
-        optionC: "Answer 3 here",
-        optionD: "Answer 4 here",
-        correctOption: "optionA"
+        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        correctAnswer: "2"
     },
 
     {
         question: "Question 3 here",
-        optionA: "Answer 1 here",
-        optionB: "Answer 2 here",
-        optionC: "Answer 3 here",
-        optionD: "Correct Answer Here",
-        correctOption: "optionD"
+        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        correctAnswer: "3"
     },
 
     {
         question: "Question 4 here",
-        optionA: "Answer 1 here",
-        optionB: "Answer 2 here",
-        optionC: "Correct Answer Here",
-        optionD: "Answer 4 here",
-        correctOption: "optionC"
+        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        correctAnswer: "2"
     },
 
     {
         question: "Question 5 here",
-        optionA: "Answer 1 here",
-        optionB: "Correct Answer Here",
-        optionC: "Answer 3 here",
-        optionD: "Answer 4 here",
-        correctOption: "optionB"
+        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        correctAnswer: "1"
     }
 ];
 
-btn.addEventListener("click", startGame); 
+//to start game on Start Quiz button click
+startBtn.addEventListener("click", startGame);
 
-function startGame() {
+ //function to start countdown
+ function countdown() {
 
-    function countdown() {
-        var timeLeft = 100;
+    var timeInterval = setInterval(function() {
+        secondsLeft--;
+        timerEl.textContent = "Time:${secondsLeft}s";
 
-        var timeInterval = setInterval(function() {
-            if (timeLeft > 0) {
-            timerEl.textContent = timeLeft;
-            timeLeft--;
-            }
-            else {
+        if (secondsLeft === 0 || questionCount === questions.length) {
             clearInterval(timeInterval);
-            timerEl.textContent = 0;
-            }
-        }, 1000);
-    };
-    countdown();
-};
+            questionsEl.style.display = "none";
+            finalEl.style.display = "block";
+            scoreEl.textContent = secondsLeft;
+        }
+    }, 1000);
+ }
 
+//function to start game on button click
+function startGame() {
+    introductionEl.getElementsByClassName.display = "none";
+    questionsEl.style.display = "block";
+    questionCount = 0;
+    countdown();
+    setQuestion(questionCount);
+}
+
+// function questionCounter() {
+    // for (i = 0; i < questionNumber; i++;) {
+        // questionNumber++;
+    // }
+// }
+
+// function getNewQuestion() {
+    // if (questionNumber >= 0 && questionNumber < max_Questions) {
+        // displayEl.append = questions.question;
+        // btn1.append = questions.optionA;
+        // btn2.append = questions.optionB;
+        // btn3.append = questions.optionC;
+        // btn4.append = questions.optionD;
+    // } 
+    // else {
+        // endGame();
+    // }
+// };
+//function endGame() {
+    //something to stop timer and go to input screen
+//}
