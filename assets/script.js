@@ -88,24 +88,97 @@ function startGame() {
     setQuestion(questionCount);
 }
 
-// function questionCounter() {
-    // for (i = 0; i < questionNumber; i++;) {
-        // questionNumber++;
-    // }
-// }
+//function to display question and answers
+function setQuestion(id) {
+    if (id < questions.length) {
+        questionEl.textContent = questions[id].question;
+        answer1Btn.textContent = questions[id].answers[0];
+        answer2Btn.textContent = questions[id].answers[1];
+        answer3Btn.textContent = questions[id].answers[2];
+        answer4Btn.textContent = questions[id].answers[3];
+    }
+}
 
-// function getNewQuestion() {
-    // if (questionNumber >= 0 && questionNumber < max_Questions) {
-        // displayEl.append = questions.question;
-        // btn1.append = questions.optionA;
-        // btn2.append = questions.optionB;
-        // btn3.append = questions.optionC;
-        // btn4.append = questions.optionD;
-    // } 
-    // else {
-        // endGame();
-    // }
-// };
-//function endGame() {
-    //something to stop timer and go to input screen
-//}
+//check answer and move to next question
+function checkAnswer(event) {
+    event.preventDefault();
+
+    yesornoEl.style.display = "block";
+    var p = document.createElement("p");
+    yesornoEl.appendChild(p);
+
+//check answer
+    if (questions[questionCount].correctAnswer === event.target.value) {
+        p.textContent = "Correct!";
+    } else if (questions[questionCount].correctAnswer !== event.target.value) {
+        secondsLeft = secondsLeft - 10;
+        p.textContent = "Wrong";
+    }
+//increase questions index
+    if (questionCount < questions.length) {
+        questionCount++;
+    }
+    setQuestion(questionCount);
+}
+
+//add Score
+function addScore(event) {
+    event.preventDefault();
+
+    inputEl.style.display = "none";
+    highscoresEl.style.display = "block";
+
+    var initialize = initialsInput.value.toUpperCase();
+    highScoreList.push({ initials: initialize, score: secondsLeft });
+
+    highScoreListEl.innerHTML="";
+    for (var i=0; i< highScoreList.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = "${highScoreList[i].initials}: ${highScoreList[i].score}";
+        highScoreList.append(li);
+    }
+
+    storeScores();
+    displayScores();
+};
+
+function storeScores() {
+    localStorage.setItem("highScoreList", JSON.stringify(highScoreList));
+}
+
+function displayScores() {
+    var storedScoreList = JSON.parse(localStorage.getItem("highScoreList"));
+    if (storedScoreList !== null) {
+        highScoreList = storedScoreList;
+    }
+}
+
+function clearScores() {
+    localStorage.clear();
+    highScoreListEl.innerHTML="";
+}
+
+answerBtn.forEach(item => {
+    item.addEventListener("click", checkAnswer);
+});
+
+submitBtn.addEventListener("click", addScore);
+
+restartBtn.addEventListener("click", function() {
+    highscoresEl.style.display = "none";
+    introductionEl.style.display = "block";
+    secondsLeft = 100;
+    timerEl.textContent = "Time:${secondsLeft}s";
+});
+
+clearScoreBtn.addEventListener("click", clearScores);
+
+highScoreBtn.addEventListener("click", function () {
+    if (highscoresEl.style.display === "none") {
+        highscoresEl.style.display = "block";
+    } else if (highscoresEl.style.display === "block") {
+        highscoresEl.style.display = "none";
+    } else {
+        return alert("No scores to show.");
+    }
+});
