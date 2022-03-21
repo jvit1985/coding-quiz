@@ -1,5 +1,5 @@
 //time and score variables
-var timerEl = document.querySelector("countdown-timer-view");
+var timerEl = document.querySelector("h4.time");
 var secondsLeft = 100;
 var scoreEl = document.querySelector("#score");
 //intro section
@@ -8,9 +8,9 @@ var introductionEl = document.querySelector("#introduction");
 var questionsEl = document.querySelector("#questions");
 var questionEl = document.querySelector("#question");
 var questionCount = 0;
-var yesornoEl = document.querySelector("#rightorwrong");
+var yesornoEl = document.querySelector("#yesorno");
 //input section
-var inputEl = document.querySelector("#final");
+var inputEl = document.querySelector("#input");
 var initialsInput = document.querySelector("#initials");
 //high score section
 var highscoresEl = document.querySelector("#highscores");
@@ -68,12 +68,12 @@ startBtn.addEventListener("click", startGame);
 
     var timeInterval = setInterval(function() {
         secondsLeft--;
-        timerEl.textContent = "Time:${secondsLeft}s";
+        timerEl.textContent = 'Time:' + secondsLeft;
 
         if (secondsLeft === 0 || questionCount === questions.length) {
             clearInterval(timeInterval);
             questionsEl.style.display = "none";
-            finalEl.style.display = "block";
+            inputEl.style.display = "block";
             scoreEl.textContent = secondsLeft;
         }
     }, 1000);
@@ -81,7 +81,7 @@ startBtn.addEventListener("click", startGame);
 
 //function to start game on button click
 function startGame() {
-    introductionEl.getElementsByClassName.display = "none";
+    introductionEl.style.display = "none";
     questionsEl.style.display = "block";
     questionCount = 0;
     countdown();
@@ -107,6 +107,10 @@ function checkAnswer(event) {
     var p = document.createElement("p");
     yesornoEl.appendChild(p);
 
+    setTimeout(function () {
+        p.style.display = "none";
+    }, 1000);
+
 //check answer
     if (questions[questionCount].correctAnswer === event.target.value) {
         p.textContent = "Correct!";
@@ -128,14 +132,22 @@ function addScore(event) {
     inputEl.style.display = "none";
     highscoresEl.style.display = "block";
 
-    var initialize = initialsInput.value.toUpperCase();
-    highScoreList.push({ initials: initialize, score: secondsLeft });
+    var init = initialsInput.value.toUpperCase();
+    highScoreList.push({ initials: init, score: secondsLeft });
+
+    highScoreList = highScoreList.sort((a,b) => {
+        if (a.score < b.score) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
 
     highScoreListEl.innerHTML="";
-    for (var i=0; i< highScoreList.length; i++) {
+    for (var i = 0; i < highScoreList.length; i++) {
         var li = document.createElement("li");
-        li.textContent = "${highScoreList[i].initials}: ${highScoreList[i].score}";
-        highScoreList.append(li);
+        li.textContent = "{highScoreList[i].initials}: {highScoreList[i].score}";
+        highScoreListEl.append(li);
     }
 
     storeScores();
@@ -168,7 +180,7 @@ restartBtn.addEventListener("click", function() {
     highscoresEl.style.display = "none";
     introductionEl.style.display = "block";
     secondsLeft = 100;
-    timerEl.textContent = "Time:${secondsLeft}s";
+    timerEl.textContent = "Time:" + secondsLeft;
 });
 
 clearScoreBtn.addEventListener("click", clearScores);
