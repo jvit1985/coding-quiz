@@ -146,7 +146,8 @@ function addScore(event) {
     highScoreListEl.innerHTML="";
     for (var i = 0; i < highScoreList.length; i++) {
         var li = document.createElement("li");
-        li.textContent = "{highScoreList[i].initials}: {highScoreList[i].score}";
+        li.textContent = highScoreList[i].initials;
+        li.textContent = highScoreList[i].score;
         highScoreListEl.append(li);
     }
 
@@ -155,11 +156,11 @@ function addScore(event) {
 };
 
 function storeScores() {
-    localStorage.setItem("highScoreList", JSON.stringify(highScoreList));
+    localStorage.setItem("ScoreList", JSON.stringify(highScoreList));
 }
 
 function displayScores() {
-    var storedScoreList = JSON.parse(localStorage.getItem("highScoreList"));
+    var storedScoreList = JSON.parse(localStorage.getItem("ScoreList"));
     if (storedScoreList !== null) {
         highScoreList = storedScoreList;
     }
@@ -186,11 +187,10 @@ restartBtn.addEventListener("click", function() {
 clearScoreBtn.addEventListener("click", clearScores);
 
 highScoreBtn.addEventListener("click", function () {
-    if (highscoresEl.style.display === "none") {
+    if (highScoreListEl !== "") {
         highscoresEl.style.display = "block";
-    } else if (highscoresEl.style.display === "block") {
-        highscoresEl.style.display = "none";
-    } else {
-        return alert("No scores to show.");
+        introductionEl.style.display = "none";
+        inputEl.style.display="none";
+        questionsEl.style.display="none";
     }
 });
