@@ -36,25 +36,25 @@ var questions = [
     },
 
     {
-        question: "The condition in an if/else statement is enclosed with ____",
+        question: "The condition in an if/else statement is enclosed with ____.",
         answers: ["1. Quotes", "2. Brackets", "3. Parenthesis", "4. Curly Brackets"],
         correctAnswer: "2"
     },
 
     {
-        question: "Arrays in JavaScript can be used to store ____",
+        question: "Arrays in JavaScript can be used to store ____.",
         answers: ["1. Numbers and strings", "2. Other arrays", "3. Booleans", "4. All of the above"],
         correctAnswer: "3"
     },
 
     {
-        question: "String values must be enclosed within ____ when being assigned to variables",
+        question: "String values must be enclosed within ____ when being assigned to variables.",
         answers: ["1. Commas", "2. Curly brackets", "3. Quotes", "4. Parenthesis"],
         correctAnswer: "2"
     },
 
     {
-        question: "A very useful tool during development and debugging for printing content to the debugger",
+        question: "A very useful tool during development and debugging for printing content to the debugger.",
         answers: ["1. JavaScript", "2. console.log", "3.terminal/bash ", "4. for loops"],
         correctAnswer: "1"
     }
