@@ -30,32 +30,32 @@ var highScoreBtn = document.querySelector("#high-score-button");
 
 var questions = [
     {
-        question: "Question 1 here",
-        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        question: "Commonly used data types DO NOT include:",
+        answers: ["1. Alerts", "2. Strings", "3. Booleans", "4. Numbers"],
         correctAnswer: "0"
     },
 
     {
-        question: "Question 2 here",
-        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        question: "The condition in an if/else statement is enclosed with ____",
+        answers: ["1. Quotes", "2. Brackets", "3. Parenthesis", "4. Curly Brackets"],
         correctAnswer: "2"
     },
 
     {
-        question: "Question 3 here",
-        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        question: "Arrays in JavaScript can be used to store ____",
+        answers: ["1. Numbers and strings", "2. Other arrays", "3. Booleans", "4. All of the above"],
         correctAnswer: "3"
     },
 
     {
-        question: "Question 4 here",
-        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        question: "String values must be enclosed within ____ when being assigned to variables",
+        answers: ["1. Commas", "2. Curly brackets", "3. Quotes", "4. Parenthesis"],
         correctAnswer: "2"
     },
 
     {
-        question: "Question 5 here",
-        answers: ["1. Answer 1 here", "2. Answer 2 here", "3. Answer 3 here", "4. Answer 4 here"],
+        question: "A very useful tool during development and debugging for printing content to the debugger",
+        answers: ["1. JavaScript", "2. console.log", "3.terminal/bash ", "4. for loops"],
         correctAnswer: "1"
     }
 ];
