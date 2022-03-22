@@ -146,8 +146,7 @@ function addScore(event) {
     highScoreListEl.innerHTML="";
     for (var i = 0; i < highScoreList.length; i++) {
         var li = document.createElement("li");
-        li.textContent = highScoreList[i].initials;
-        li.textContent = highScoreList[i].score;
+        li.textContent = highScoreList[i].initials + " " + highScoreList[i].score;
         highScoreListEl.append(li);
     }
 
@@ -160,11 +159,14 @@ function storeScores() {
 }
 
 function displayScores() {
-    var storedScoreList = JSON.parse(localStorage.getItem("ScoreList"));
+    var storedScoreList = JSON.parse(localStorage.getItem("ScoreList")) || [];
     if (storedScoreList !== null) {
-        highScoreList = storedScoreList;
+        for( var i =storedScoreList.length-1;i>=0;i--){
+            var html=document.getElementById(high-score-list).innerHTML;
+            document.getElementById(high-score-list).innerHTML=html+"<br>"+storedScoreList[i].highScoreList;
+        }
     }
-}
+};
 
 function clearScores() {
     localStorage.clear();
