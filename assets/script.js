@@ -162,8 +162,6 @@ function displayScores() {
     var storedScoreList = JSON.parse(localStorage.getItem("ScoreList")) || [];
     if (storedScoreList !== null) {
         for( var i =storedScoreList.length-1;i>=0;i--){
-            var html=document.getElementById(high-score-list).innerHTML;
-            document.getElementById(high-score-list).innerHTML=html+"<br>"+storedScoreList[i].highScoreList;
         }
     }
 };
