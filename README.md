@@ -1,6 +1,6 @@
 # coding-quiz
 
-a timed quiz on JavaScript fundamentals that stores high scores
+A timed quiz on JavaScript fundamentals that stores high scores
 so that I can gauge my progress compared to my peers.
 
 When you click the start button a timer starts and you are presented with a question.
@@ -9,7 +9,7 @@ When I answer a question incorrectly time is subtracted from the clock
 When all questions are answered or the timer reaches 0 the game is over
 When the game is over then I can save my initials and score.
 
-Deployed at 
+Deployed at https://jvit1985.github.io/coding-quiz/
 
 Start Game Screen
 ![screencapture-file-C-Users-jvit1-Desktop-projects-coding-quiz-index-html-2022-03-22-18_37_09](https://user-images.githubusercontent.com/54601156/159595150-cd0295d7-40e9-4ba6-bdd7-0ad1cbb2b24c.jpg)
